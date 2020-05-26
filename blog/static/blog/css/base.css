@@ -1,0 +1,28 @@
+/**
+* Template Name: My Personal Template
+* Author: Abdullahi
+* License: free
+*/
+@import url("https://fonts.googleapis.com/css?family=Ubuntu");
+
+html {
+    box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+body {
+    margin: 0;
+    background-color: #f1f1f1;
+    max-width: 1600px;
+    font-family: "Ubuntu", sans-serif;
+}
+
+.page-content {
+    min-height: 80vh;
+    margin: 100px auto;
+    max-width: 90%;
+    padding: 18px 16px !important;
+}
