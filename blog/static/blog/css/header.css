@@ -1,0 +1,138 @@
+/* Navigation */
+.mobile-nav {
+    padding: 6px 6px;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    top: 0;
+    background-color: rgb(0, 0, 0);
+    color: #fff;
+    font-size: 24px !important;
+}
+
+@media (min-width: 769px) {
+    .mobile-nav {
+        display: none !important;
+    }
+}
+
+.brand {
+    float: left !important;
+    padding: 18px 16px !important;
+    font-size: 25px;
+}
+.brand a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.menu-btn {
+    float: right !important;
+    padding: 8px 16px !important;
+    font-size: 40px;
+}
+.menu-btn {
+    border: none;
+    display: inline-block;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    background-color: inherit;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+}
+/**Ent of Nav-Res**/
+
+.nav {
+    position: fixed;
+    background-color: black;
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: all 0.25s ease-in-out;
+
+}
+
+.nav .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    transition: all 0.25s ease-in-out;
+}
+
+.nav ul {
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 15px;
+    transition: all 0.3s ease-out;
+}
+.menu {
+    display: none;
+}
+.logo-small-screen {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .nav {
+        padding-bottom: 12px;
+    }
+
+    .nav .nav-container {
+        display: none;
+        padding-top: 50px;
+        padding-bottom: 120px;
+        width: 200px;
+        min-height: 100vh;
+        background: rgba(60, 169, 241, 0.678);
+        position: absolute;
+        margin-top: 10px;
+    }
+
+    .nav ul {
+        display: inline-block;
+        list-style-type: none;
+        align-items: center;
+        padding: 20px 10px;
+    }
+
+    .nav ul li {
+        color: white;
+        text-decoration: none;
+        padding: 15px 15px;
+    }
+
+    .logo-small-screen {
+        display: block;
+    }
+}
+
+.logo.active {
+    display: none;
+}
+
+.nav .nav-container.active {
+    display: block;
+    animation: animateleft 0.4s;
+}
+
+@keyframes animateleft {
+    from {
+        left: -300px;
+        opacity: 0;
+    }
+    to {
+        left: 0;
+        opacity: 1;
+    }
+}
