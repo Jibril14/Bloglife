@@ -1,0 +1,44 @@
+{% extends "blog/base.html" %}
+ {% load static %}
+
+ {% block css_files %}
+ <link rel="stylesheet" href="{% static "blog/css/index.css" %}">
+ {% endblock %}
+ 
+{%block blogpost %}
+
+<div class="grid-1">
+    {% for post in posts %}
+    <a href="{% url "post-detail" post.slug %}" >
+    <div class="col">
+    {#<img src="{% static "shop/images/img3.jpg" %}" alt="glam store" style="width: 100%">#}
+    <img src="{{ post.image_name }}"  alt="{{ post.title }}" style="width:100%">
+     
+        <div class="inner-items">
+            <p class="post-title"><b>{{ post.title }}</b></p>
+            <p  class="post-excerpt">
+               {{ post.excerpt|truncatewords:6}}
+            </p>
+        </div>
+        <div class="btn">Read More</div>
+    </div>
+    </a>
+	{% endfor%}    
+
+</div>
+<div class="paginator">
+  {% if posts.has_previous %}
+            <a href="?page=1">First</a>
+            <a href="?page={{posts.previous_page_number }}">Previous</a>
+        {% endif %}
+
+         Page: {{ posts.number }} of {{ posts.paginator.num_pages}}
+
+         {% if posts.has_next %}
+            <a href="?page={{posts.next_page_number }}">Next</a>
+            <a href="?page={{posts.paginator.num_pages}}">Last</a>
+        {% endif %}
+   
+</div>
+
+{% endblock %}
