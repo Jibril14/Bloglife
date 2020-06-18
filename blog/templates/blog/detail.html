@@ -1,0 +1,53 @@
+{% extends "blog/base.html"%}
+{% load static %}
+{% block css_files%} 
+  <link rel="stylesheet" href="{% static "blog/css/detail.css" %}">
+{% endblock %}
+
+{% block blogpost %}
+<div class="detail-container">
+     <img src="{% static "blog/images/img1.jpg" %}" alt="bloglife" style="width: 80%; height: 80%">
+    <h2>{{ post.title }}</h2>
+    <div class="inner-content">
+        <p>
+        {% for tag in all_tags %}
+         
+           <span class="tag">{{ tag }}</span>
+         
+         {% endfor %} 
+         </p>
+        <h4>{{ post.date }}</h4>
+    </div>
+    <h5>By: {{ post.author }}</h5>
+
+    <p>
+        {{ post.content }}
+    </p>
+</div>
+
+<div id="comments">
+    <ul><span class="comment-tag">Comments</span>
+        {% for comment in comments %}
+        <li>
+            <h3><span><img src=""></span>{{comment.user_name}}</h3>
+            <p>{{ comment.text}}</p>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+
+<div>
+    <form id="comment-form" action="{% url "post-detail" post.slug %}" method="POST">
+        {% csrf_token %}
+        {% for field in form %}
+            <div class="form-control">
+                {{ field.label_tag }}
+                {{ field }}
+                {{ field.errors }}
+            </div>
+        {% endfor%}
+            <button type="Submit">Submit</button>
+    </form>
+ </div>
+ {% endblock %}
