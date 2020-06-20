@@ -1,0 +1,12 @@
+{% extends "blog/base.html"%}
+{% load static %}
+{% block css_files%} 
+  <link rel="stylesheet" href="{% static "blog/css/about.css" %}">
+{% endblock %}
+
+{% block blogpost %}
+<div class="detail-container">
+ <p style="margin-top: 50px">This is About Page</p>
+ 
+</div>
+ {% endblock %}
