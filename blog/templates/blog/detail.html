@@ -6,14 +6,12 @@
 
 {% block blogpost %}
 <div class="detail-container">
-     <img src="{% static "blog/images/img1.jpg" %}" alt="bloglife" style="width: 80%; height: 80%">
+     <img src="{{ post.image_name }}"  alt="{{ post.title }}" style="width: 80%; height: 80%">
     <h2>{{ post.title }}</h2>
     <div class="inner-content">
         <p>
         {% for tag in all_tags %}
-         
            <span class="tag">{{ tag }}</span>
-         
          {% endfor %} 
          </p>
         <h4>{{ post.date }}</h4>
